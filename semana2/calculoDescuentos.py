@@ -9,11 +9,11 @@
 cantidadHuevos = int(input("Digite la cantidad de cajas de huevos que quiere comprar: "))
 
 #paso2: preguntar si la persona quiere comprar arepas
-quiereArepas = input("Usted quiere llevar Arepas? ")
+quiereArepas = input("Usted quiere llevar Arepas? ").lower()
 
 #paso3:  preguntar si la persona quiere comprar arepas?
 cantidadArepas = 0
-if quiereArepas == "si" or "SI" or "Si":
+if quiereArepas == "si"
     cantidadArepas = int(input("Digite la cantidad de paquetes de arepas que quiere comprar: "))
 
 
