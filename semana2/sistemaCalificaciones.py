@@ -6,6 +6,27 @@
 #4.6 - 5 imprimir excelente
 #en cualquier otro rango imprimir calificacion errada
 
+#primera forma
+#se solicita al usuario ingrese el valor de la calificacion
+calificacion = float(input("Por favor ingrese la calificacion: "))
+
+#se realiza logica del algoritmo
+if calificacion >= 0 and calificacion <= 5:
+    #calculo del tipo de calificacion
+    if calificacion >=0 and calificacion <3:
+        print("La calificación es Insuficiente")
+    elif calificacion >= 3 and calificacion <4:
+        print("La calificación es Aceptable")
+    elif calificacion>= 4 and calificacion < 4.6:
+        print("La calificación es Sobresaliente")
+    else:
+        print("La calificación es Excelente")
+else:
+    print("la calificación es Invalida")
+
+"""
+#segunda forma que vi para realizarla: 
+
 #se solicita al usuario ingrese el valor de la calificacion
 calificacion = float(input("Por favor ingrese la calificacion: "))
 
@@ -20,3 +41,4 @@ elif calificacion >= 4.6 and calificacion <= 5:
     print("su calificacion es Excelente") 
 else:
      print("usted digito un número erroneo")
+"""
