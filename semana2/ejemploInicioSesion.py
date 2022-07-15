@@ -1,11 +1,21 @@
-# simular un inicio de sesion con una contraseaguardada en Db.
+# simular un inicio de sesion con una contraseñaguardada.
 
 
+
+maxRetries = 3
 storedPassword = "ab123"
-newPassword = input("Digite su contrasenia: ")
+usserPassword = input("Digite su contraseña: ")
 
-while storedPassword != newPassword:    
-    
-    newPassword = input("la contrasena no coincide.  Digite su contrasenia nuevamente: ")
-    
-print("Contrasenia Correcta!!.  Puede iniciar sesion")
+
+cont = 0
+
+while storedPassword != usserPassword and cont < maxRetries:   
+    print("la contraseña no coincide")
+    cont += 1 
+    print("Valor del contador ", cont)
+    usserPassword = input("Por favor ingresa nuevamente la contraseña: ")
+
+if cont >= maxRetries:
+    print("Te equivocaste mas de tres veces.  Te hemos bloqueado.")
+else:    
+    print("Contraseña Correcta!!.  Puede iniciar sesion")
