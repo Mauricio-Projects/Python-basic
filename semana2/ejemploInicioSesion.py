@@ -7,7 +7,7 @@ storedPassword = "ab123"
 usserPassword = input("Digite su contraseña: ")
 
 
-cont = 0
+cont = 1
 
 while storedPassword != usserPassword and cont < maxRetries:   
     print("la contraseña no coincide")
