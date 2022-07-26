@@ -21,11 +21,11 @@ numberToEvaluate = 1
 sumPrimeFound = False
 
 while not sumPrimeNumber:
-    if isPrimeNumber(numberToEvaluate) == True:
+    if isPrimeNumber(numberToEvaluate):
         contPrimeNumber = contPrimeNumber + 1
         sumPrimeNumber = sumPrimeNumber + numberToEvaluate
         print(numberToEvaluate, sumPrimeNumber, isPrimeNumber(sumPrimeNumber))
-        if isPrimeNumber1(sumPrimeNumber) and contPrimeNumber>=2:
+        if isPrimeNumber(sumPrimeNumber) and contPrimeNumber>=2:
             sumPrimeNumber = True
     
     numberToEvaluate = numberToEvaluate + 1
