@@ -1,6 +1,9 @@
 #hacer una clase que se llame cuenta bancaria
 #atributos:  #numero de cuenta (aleatorio),  saldo,
 #metodos: retirar, depositar
+
+#ejercicio: agregar condicion si el saldo es negativo
+#ejercicio:  cobrar una comision del 4 por 1000 cuando el moento de la consignacion sea mayo a 10000
 import random
 
 class BankAccount:
@@ -9,7 +12,13 @@ class BankAccount:
         self.balance = initialBalance
     
     def withdraw(self, monto):
-        self.balance = self.balance - monto
+        
+        if self.balance < amount:
+            print("Fondos Insuficientes")
+        else:
+            self.balance = self.balance - monto
+            print("--Successful Withdrawal--")
+
         
     def record(self, monto):
         self.balance = self.balance + monto
@@ -31,10 +40,11 @@ while True:
     operacion = input("Ingrese 'S' para consultar el saldo, 'R' para retirar y 'C' para consignar: ")
     if operacion == "S":
         savingAcoount.checkBalance()
+
     elif operacion == "R":
         amount = float(input("Ingrese el monto que quiere Retirar: "))
         savingAcoount.withdraw(amount)
-        print("--Successful Withdrawal--")
+        
     elif operacion == "C":
         amount = float(input("Ingrese el monto que quiere Consignar: "))
         savingAcoount.record(amount)
