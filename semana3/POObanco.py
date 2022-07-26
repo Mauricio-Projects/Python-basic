@@ -1,7 +1,6 @@
 #hacer una clase que se llame cuenta bancaria
 #atributos:  #numero de cuenta (aleatorio),  saldo,
 #metodos: retirar, depositar
-
 #ejercicio: agregar condicion si el saldo es negativo
 #ejercicio:  cobrar una comision del 4 por 1000 cuando el momento de la consignacion sea mayor a 10.000
 #ejercicio opcional:  crear una lista de cuentas y agregar la posibilidad de crear una cuenta nueva o eliminarla.
@@ -14,23 +13,23 @@ class BankAccount:
         self.accountNumber = random.randint(1000,10000) 
         self.balance = initialBalance
     
-    def withdraw(self, amount):
+    def withdraw(self, acount):
         
-        if self.balance < amount:
+        if self.balance < acount:
             print("Insufficient Founds")
         else:
-            self.balance = self.balance - amount
+            self.balance = self.balance - acount
             print("--Successful Withdrawal--")
 
         
-    def record(self, amount):
-        if amount > 10000:
-            commission = amount * 4 / 1000
+    def record(self, acount):
+        if acount > 10000:
+            commission = acount * 4 / 1000
             print("The commission of the consignment of: ", commission)
-            amount = amount - commission
-            self.balance = self.balance + amount
+            acount = acount - commission
+            self.balance = self.balance + acount
         else:
-            self.balance = self.balance + amount
+            self.balance = self.balance + acount
 
     def checkBalance(self):
         print("Account: ", self.accountNumber)
@@ -43,18 +42,30 @@ class BankAccount:
 # cuenta1.consignar(20000)
 
 
-initialBalance = float(input("Welcome to the Bank AMG.\nTo create a banl account enter the opening balance: "))
-savingAcoount = BankAccount(initialBalance)
+listOfAccount = []
 while True:
-    operacion = input("Enter 'S' to check balance, 'R' to withdraw and 'C' to consing: ")
-    if operacion == "S":
-        savingAcoount.checkBalance()
+    operacion = input("Enter to new account 'N', Enter 'S' to check balance, 'R' to withdraw and 'C' to consing: ")
+    
+    if operacion == "N":
+        initialBalance = float(input("Welcome to the Bank AMG.\nTo create a bank account enter the opening balance: "))
+        account = BankAccount(initialBalance)
+        listOfAccount.append(account)
+        print("Account created successfully. The account number is: ", account.accountNumber )
 
+    elif operacion == "S":
+        #pedir el numero de cuenta al usuario
+        numAccount = int(input("Please, enter your number account: "))
+        #buscar la cuenta del usuario. cuando se encuentre imprimir el saldo
+        for account in listOfAccount:
+            if account.accountNumber == numAccount:
+                print("Account found")
+                account.checkBalance()
+        
     elif operacion == "R":
         amount = float(input("Enter the value you want to withdraw: "))
-        savingAcoount.withdraw(amount)
+        listOfAccount.withdraw(amount)
         
     elif operacion == "C":
         amount = float(input("Enter the value you want to record: "))
-        savingAcoount.record(amount)
+        listOfAccount.record(amount)
         print("--Successful consignment--")
