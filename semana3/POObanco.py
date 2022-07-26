@@ -3,25 +3,39 @@
 #metodos: retirar, depositar
 import random
 
-class CuentaBancaria:
-    def __init__(self, saldoInicial):
-        self.numero = random.randint(1000,10000) 
-        self.saldo = saldoInicial
+class BankAccount:
+    def __init__(self, initialBalance):
+        self.accountNumber = random.randint(1000,10000) 
+        self.balance = initialBalance
     
-    def retirar(self, monto):
-        self.saldo = self.saldo - monto
+    def withdraw(self, monto):
+        self.balance = self.balance - monto
         
-    def consignar(self, monto):
-        self.saldo = self.saldo + monto
+    def record(self, monto):
+        self.balance = self.balance + monto
 
-    def consultarSaldo(self):
-        print("Cuenta: ", self.numero)
-        print("Saldo: ", self.saldo)
+    def checkBalance(self):
+        print("Cuenta: ", self.accountNumber)
+        print("Saldo: ", self.balance)
         print("------------------")
 
-cuenta1 = CuentaBancaria(10000)
-cuenta1.consultarSaldo()
-cuenta1.retirar(500)
-cuenta1.consignar(20000)
+# cuenta1 = CuentaBancaria(10000)
+# cuenta1.checkBalance()
+# cuenta1.retirar(500)
+# cuenta1.consignar(20000)
 
 
+initialBalance = float(input("Bienvenido al Banco AMG.\nPara crear su cuenta bancaria, ingrese el saldo inicial: "))
+savingAcoount = BankAccount(initialBalance)
+while True:
+    operacion = input("Ingrese 'S' para consultar el saldo, 'R' para retirar y 'C' para consignar: ")
+    if operacion == "S":
+        savingAcoount.checkBalance()
+    elif operacion == "R":
+        amount = float(input("Ingrese el monto que quiere Retirar: "))
+        savingAcoount.withdraw(amount)
+        print("--Successful Withdrawal--")
+    elif operacion == "C":
+        amount = float(input("Ingrese el monto que quiere Consignar: "))
+        savingAcoount.record(amount)
+        print("--Successful consignment--")
