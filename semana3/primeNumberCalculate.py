@@ -16,7 +16,20 @@ def isPrimeNumber(number):
 
 
 contPrimeNumber = 0
+sumPrimeNumber = 0
 numberToEvaluate = 1
+sumPrimeFound = False
+
+while not sumPrimeNumber:
+    if isPrimeNumber(numberToEvaluate) == True:
+        contPrimeNumber = contPrimeNumber + 1
+        sumPrimeNumber = sumPrimeNumber + numberToEvaluate
+        print(numberToEvaluate, sumPrimeNumber, isPrimeNumber(sumPrimeNumber))
+        if isPrimeNumber1(sumPrimeNumber) and contPrimeNumber>=2:
+            sumPrimeNumber = True
+    
+    numberToEvaluate = numberToEvaluate + 1
+
 
 while contPrimeNumber < 100:
     if isPrimeNumber(numberToEvaluate):
