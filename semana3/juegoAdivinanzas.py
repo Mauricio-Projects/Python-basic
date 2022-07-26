@@ -25,6 +25,7 @@ def GuessTheNumber(maxRetries,):
         if userInput == numberToGoes:
             print("Has ganado!")
             won = True
+            return won
         else:
             print("Respuesta Incorrecta")
             contUserGuess = contUserGuess + 1
@@ -32,7 +33,8 @@ def GuessTheNumber(maxRetries,):
 
     if contUserGuess == maxGuess:
         print(f"Has perdido!.  El número a encontrar es {numberToGoes} ")
+    return won
 
-GuessTheNumber(3)
-
+result = GuessTheNumber(3)
+print(result)
 
