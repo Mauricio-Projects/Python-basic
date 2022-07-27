@@ -51,7 +51,7 @@ def buscarCuentas(mensajeOperacion):
 listaDeCuentas = []
 
 while True:
-    operacion = input("Ingrese N para crear una nueva cuenta, S para consultar el saldo, R para retirar y C para consignar: ")
+    operacion = input("Ingrese N para crear una nueva cuenta, S para consultar el saldo, R para retirar y C para consignar: ").upper()
     if operacion == "N":
         saldoInicial = float(input("Bienvenido al banco XYZ. Para crear su cuenta bancaria, ingrese el saldo inicial de la cuenta: "))
         cuenta = CuentaBancaria(saldoInicial)
