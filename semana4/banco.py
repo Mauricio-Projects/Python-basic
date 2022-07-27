@@ -46,8 +46,8 @@ def buscarCuentas(mensajeOperacion):
         #buscar la cuenta del usuario.  Cuando se encuentre, imprimir el saldo.
         for cuenta in listaDeCuentas:
             if cuenta.numeroCuenta == numCuenta:
-                return cuenta
-
+                return [True, cuenta]
+        return False
 listaDeCuentas = []
 
 while True:
@@ -59,17 +59,23 @@ while True:
         print("Cuenta creada con exito.  el numero de la cuenta es: ", cuenta.numeroCuenta)
         
     elif operacion == "S":
-        cuenta = buscarCuentas("Por favor ingrese el numero de cuenta que quiere consultar: ")
-        cuenta.consultarSaldo()
+        resultadoLista = buscarCuentas("Por favor ingrese el numero de cuenta que quiere consultar: ")
+        if resultadoLista[0]:
+            cuenta = resultadoLista[1]
+            cuenta.consultarSaldo()
 
     elif operacion == "R":
-        cuenta = buscarCuentas("Por favor ingrese el numero de cuenta que quiere retirar: ")
-        monto = float(input("Ingrese el monto a retirar: "))
-        cuenta.retirar(monto)
+        resultadoLista = buscarCuentas("Por favor ingrese el numero de cuenta que quiere retirar: ")
+        if resultadoLista[0]:
+            monto = float(input("Ingrese el monto a retirar: "))
+            cuenta = resultadoLista[1]
+            cuenta.retirar(monto)
     elif operacion == "C":
-        cuenta = buscarCuentas("Por favor ingrese el numero de cuenta que quiere consignar: ")
-        monto = float(input("Ingrese el monto a consignar: "))
-        cuenta.consignar(monto)
+        resultadoLista = buscarCuentas("Por favor ingrese el numero de cuenta que quiere consignar: ")
+        if resultadoLista[0]:
+            monto = float(input("Ingrese el monto a consignar: "))
+            cuenta = resultadoLista[1]
+            cuenta.consignar(monto)
     else:
         print("Operación incorrecta")
 
